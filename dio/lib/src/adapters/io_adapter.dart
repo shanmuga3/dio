@@ -112,7 +112,7 @@ class IOHttpClientAdapter implements HttpClientAdapter {
 
       // Set Headers
       options.headers.forEach((k, v) {
-        if (v != null) request.headers.set(k, v);
+        if (v != null) request.headers.set(k, v,preserveHeaderCase: true);
       });
     } on SocketException catch (e) {
       if (e.message.contains('timed out')) {
